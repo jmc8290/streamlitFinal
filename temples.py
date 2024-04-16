@@ -89,11 +89,23 @@ if varX == "Square Footage":
         sb.lmplot(df, x = 'Square Footage', y = 'Sealing Rooms', scatter_kws={"s": 10, "alpha": 0.5}, x_jitter = 0.3, y_jitter = 0.5)
         st.pyplot()
     elif varY == "Acreage":
-        sb.lmplot(df, x = 'Square Footage', y = 'Acreage', scatter_kws={"s": 10, "alpha": 0.5}, x_jitter = 0.3, y_jitter = 0.5)
-        st.pyplot()
+        location1 = st.text_input('Enter a location to highlight its temples', value='Arizona')
+        df['temp'] = df['Temple'].str.contains(location1)
+        hoverTemple = {col: True if col == 'Temple' else False for col in df.columns}
+        
+        fig = px.scatter(df, x = 'Square Footage', y = 'Acreage', hover_data= hoverTemple, color = 'temp', color_discrete_map={0: 'blue', 1: 'red'})
+        st.plotly_chart(fig)
+        
+        df = df.drop(columns = 'temp')
     elif varY == "Elevation":
-        sb.lmplot(df, x = 'Square Footage', y = 'Elevation (Feet)', scatter_kws={"s": 10, "alpha": 0.5}, x_jitter = 0.3, y_jitter = 0.5)
-        st.pyplot()
+        location1 = st.text_input('Enter a location to highlight its temples', value='Arizona')
+        df['temp'] = df['Temple'].str.contains(location1)
+        hoverTemple = {col: True if col == 'Temple' else False for col in df.columns}
+        
+        fig = px.scatter(df, x = 'Square Footage', y = 'Elevation (Feet)',hover_data= hoverTemple, color = 'temp', color_discrete_map={0: 'blue', 1: 'red'})
+        st.plotly_chart(fig)
+        
+        df = df.drop(columns = 'temp')
 
 if varX == "Acreage":
     if varY == "Instruction Rooms":
@@ -106,11 +118,23 @@ if varX == "Acreage":
         sb.lmplot(df, x = 'Acreage', y = 'Sealing Rooms', scatter_kws={"s": 10, "alpha": 0.5}, x_jitter = 0.3, y_jitter = 0.5)
         st.pyplot()
     elif varY == "Square Footage":
-        sb.lmplot(df, x = 'Acreage', y = 'Square Footage', scatter_kws={"s": 10, "alpha": 0.5}, x_jitter = 0.3, y_jitter = 0.5)
-        st.pyplot()
+        location1 = st.text_input('Enter a location to highlight its temples', value='Arizona')
+        df['temp'] = df['Temple'].str.contains(location1)
+        hoverTemple = {col: True if col == 'Temple' else False for col in df.columns}
+        
+        fig = px.scatter(df, x = 'Acreage', y = 'Square Footage',hover_data= hoverTemple, color = 'temp', color_discrete_map={0: 'blue', 1: 'red'})
+        st.plotly_chart(fig)
+        
+        df = df.drop(columns = 'temp')
     elif varY == "Elevation":
-        sb.lmplot(df, x = 'Acreage', y = 'Elevation (Feet)', scatter_kws={"s": 10, "alpha": 0.5}, x_jitter = 0.3, y_jitter = 0.5)
-        st.pyplot()
+        location1 = st.text_input('Enter a location to highlight its temples', value='Arizona')
+        df['temp'] = df['Temple'].str.contains(location1)
+        hoverTemple = {col: True if col == 'Temple' else False for col in df.columns}
+        
+        fig = px.scatter(df, x = 'Acreage', y = 'Elevation (Feet)',hover_data= hoverTemple, color = 'temp', color_discrete_map={0: 'blue', 1: 'red'})
+        st.plotly_chart(fig)
+        
+        df = df.drop(columns = 'temp')
 
 if varX == "Elevation":
     if varY == "Instruction Rooms":
@@ -123,11 +147,23 @@ if varX == "Elevation":
         sb.lmplot(df, x = 'Elevation (Feet)', y = 'Sealing Rooms', scatter_kws={"s": 10, "alpha": 0.5}, x_jitter = 0.3, y_jitter = 0.5)
         st.pyplot()
     elif varY == "Square Footage":
-        sb.lmplot(df, x = 'Elevation (Feet)', y = 'Square Footage', scatter_kws={"s": 10, "alpha": 0.5}, x_jitter = 0.3, y_jitter = 0.5)
-        st.pyplot()
+        location1 = st.text_input('Enter a location to highlight its temples', value='Arizona')
+        df['temp'] = df['Temple'].str.contains(location1)
+        hoverTemple = {col: True if col == 'Temple' else False for col in df.columns}
+        
+        fig = px.scatter(df, x = 'Elevation (Feet)', y = 'Square Footage',hover_data= hoverTemple, color = 'temp', color_discrete_map={0: 'blue', 1: 'red'} )
+        st.plotly_chart(fig)
+        
+        df = df.drop(columns = 'temp')
     elif varY == "Acreage":
-        sb.lmplot(df, x = 'Elevation (Feet)', y = 'Acreage', scatter_kws={"s": 10, "alpha": 0.5}, x_jitter = 0.3, y_jitter = 0.5)
-        st.pyplot()
+        location1 = st.text_input('Enter a location to highlight its temples', value='Arizona')
+        df['temp'] = df['Temple'].str.contains(location1)
+        hoverTemple = {col: True if col == 'Temple' else False for col in df.columns}
+        
+        fig = px.scatter(df, x = 'Elevation (Feet)', y = 'Acreage',hover_data= hoverTemple, color = 'temp', color_discrete_map={0: 'blue', 1: 'red'})
+        st.plotly_chart(fig)
+        
+        df = df.drop(columns = 'temp')
 
 with st.sidebar:
     option = st.selectbox(
